@@ -17,14 +17,16 @@ class ErrorHandler extends Error {
 }
 
 const handleError = (err, res) => {
-    const { statusCode, message } = err;
+
+  const { statusCode, message } = err;
 
     //without this line of code when throwing an error invalida status code was being displayed
     //https://teamtreehouse.com/community/rangeerror-errhttpinvalidstatuscode-invalid-status-code-undefined-pretty-sure-the-issue-is-in-cardsjs
     const sCode = statusCode || 500; 
-    
+    const status = `${statusCode}`.startsWith('4') ? 'fail' : 'error';//4 means 404 etc errors, else 500
+
     res.status(sCode).json({
-      status: "error",
+      status: status,
       sCode,
       message
     });

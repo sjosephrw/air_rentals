@@ -4,6 +4,9 @@ const { prepareDataForDbInsertion } = require('../utils/listingUtils');
  
 const loopAndWrapTryCatch = require('../utils/reusableTryCatch');
 
+const { ErrorHandler } = require('../utils/errorUtils');
+
+
 //grouping the contoleer functions into a single object to loop through the functions and 
 //wrap them in the reusable try catch block
 const groupedFunctionsObj = {
@@ -42,6 +45,10 @@ const groupedFunctionsObj = {
 
         const listing = await Listing.findById(req.params.id);
 
+        if (!listing){
+            return next(new ErrorHandler(404, `No listing found with that ID`))
+        }
+
         res.status(200).json({
             status: 'success',
             data: {
@@ -57,14 +64,22 @@ const groupedFunctionsObj = {
             runValidators: true
         });
 
+        if (!updatedListing){
+            return next(new ErrorHandler(404, `No listing found with that ID`))
+        }
+
         res.status(200).json({
             status: 'success',
             data: updatedListing
         }); 
 
     },deleteListing : async (req, res, next) => {
-    
-        await Listing.findByIdAndDelete(req.params.id);
+
+        const listing = await Listing.findByIdAndDelete(req.params.id);
+
+        if (!listing){
+            return next(new ErrorHandler(404, `No listing found with that ID`))
+        }
 
         res.status(204).json({
             status: 'success',
