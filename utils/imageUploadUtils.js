@@ -1,10 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 
-
 const cloudinary = require('cloudinary').v2;
 const multer = require('multer');
 
+const { ErrorHandler } = require('./errorUtils');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -33,7 +33,7 @@ const fileFilter = (req, file, cb) => {
     var ext = path.extname(file.originalname);
 
     if(ext !== '.png' && ext !== '.jpg' && ext !== '.gif' && ext !== '.jpeg') {
-        return cb(new Error('Only images are allowed'))
+        return cb(new ErrorHandler(400, 'Only images are allowed 🖼'), false);
     }
     
     cb(null, true);
@@ -76,12 +76,14 @@ const cloudinaryPromise = (images, dimensions = [640, 480]) => {
                         }
                     });
 
-                    // return res;
                     resolve(res.secure_url);
 
                 } else if (err){
-                    reject(err);
                     console.error(err);
+                    //throw error in promise reject
+                    //https://stackoverflow.com/questions/21887856/should-an-async-api-ever-throw-synchronously
+                    //https://javascript.info/promise-basics
+                    reject(new ErrorHandler(500, `Failed to upload image to cloudinary. 🌩`));
                 }
            });
         })
@@ -90,34 +92,28 @@ const cloudinaryPromise = (images, dimensions = [640, 480]) => {
 };
 
 exports.cloudinaryResizeAndUploadImages = async (req, res, next) => {
-    
-    if (!req.files) return next();
-    
-    let dir;
 
     if (req.body.collection === 'listing'){
         
-        dir = 'air_rentals/listings/';
+        if (req.method === 'POST' && !req.files){
+            return next(new ErrorHandler(400, `When adding a new listing you have to upload images 💥`));
+        } else if (req.method === 'PATCH' && !req.files){
+            //when editing a listing it is not compulsary to upload images
+            return next();
+        }
 
         if (req.body.category === 'stay'){
 
+            //when I attached a then catch even with await it worked
             const res = await resolveMultiplePromises(cloudinaryPromise(req.files));
             
             req.body.images = res;
 
-        } else if (req.body.category === 'adventure'){
+        } else if (req.body.category === 'adventure'){//not tested
             
-            const mainPhotosArr = req.files.filter(el => {
-                return el.fieldname === 'photos'    
-            });
+            const mainPhotosArr = req.files.filter(el => el.fieldname === 'photos');
 
-            const individualPhotosArr = req.files.filter(el => {
-                return el.fieldname.startsWith('loc');    
-            });
-
-            req.body.images = [];
-
-            req.body.individualPhotos = [];
+            const individualPhotosArr = req.files.filter(el => el.fieldname.startsWith('loc'));
 
             const res = await resolveMultiplePromises(cloudinaryPromise(mainPhotosArr));    
 
@@ -132,8 +128,6 @@ exports.cloudinaryResizeAndUploadImages = async (req, res, next) => {
         const res = await resolveMultiplePromises(cloudinaryPromise(userPhoto, [200, 200]));    
         req.body.img = res[0];
     }
-
   
     next();
-
 };

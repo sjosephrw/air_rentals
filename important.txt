@@ -1,3 +1,6 @@
+github mark down syntax
+https://guides.github.com/features/mastering-markdown/
+
 //emojis
 https://marketplace.visualstudio.com/items?itemName=bierner.emojisense
 https://www.youtube.com/watch?v=D6BFRY5yrcY
@@ -54,6 +57,17 @@ https://dev.to/jamesliudotcc/how-to-use-async-await-with-map-and-promise-all-1gb
 https://dev.to/nedsoft/central-error-handling-in-express-3aej
 
 https://teamtreehouse.com/community/rangeerror-errhttpinvalidstatuscode-invalid-status-code-undefined-pretty-sure-the-issue-is-in-cardsjs
+
+//throw error in promise reject
+//https://stackoverflow.com/questions/21887856/should-an-async-api-ever-throw-synchronously
+//https://javascript.info/promise-basics
+
+//http response codes 
+https://stackoverflow.com/questions/41504636/proper-http-status-codes-for-uploading-files-on-rest-end-point
+
+//es6 vanilla js error class
+//https://stackoverflow.com/questions/31089801/extending-error-in-javascript-with-es6-syntax-babel
+
 
 // const adventureObj = [{
 //     date: {
@@ -230,3 +244,21 @@ https://teamtreehouse.com/community/rangeerror-errhttpinvalidstatuscode-invalid-
 //     next();
 
 // };
+
+
+////////////////////////////////
+            // const mainPhotosArr = req.files.filter(el => {
+            //     return el.fieldname === 'photos'    
+            // });
+    
+            // const mainPhotosArrWithRequiredFields = mainPhotosArr.map(el => el.filename);
+    
+            // dataToDb["images"] = mainPhotosArrWithRequiredFields;
+            
+    
+            //https://stackoverflow.com/questions/16037049/why-does-javascript-map-function-return-undefined
+            // const individualPhotosArr = req.files.filter(el => {
+            //     return el.fieldname.startsWith('loc');    
+            // });
+    
+            // const indvidualPhotosArrWithRequiredFields = individualPhotosArr.map(el => el.filename);

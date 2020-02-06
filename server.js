@@ -1,9 +1,13 @@
 const mongoose = require('mongoose');
+const ora = require('ora');
+const chalk = require('chalk');
 
 const dotenv = require('dotenv');
 dotenv.config({path: './config.env'});
 
 const app = require('./app');
+
+
 
 // console.log(app.get('env'));
 // console.log(process.env);
@@ -27,6 +31,8 @@ const DB = process.env.DATABASE.allReplace({'<USERNAME>': process.env.DATABASE_U
 
 const port = process.env.PORT || 3000;
 
+const spinner = ora(`Please wait ${chalk.red('Connecting to DB \n')}`).start();
+
 mongoose.connect(DB, {
     useCreateIndex: true,
     useFindAndModify: false,
@@ -35,13 +41,19 @@ mongoose.connect(DB, {
     // useUnifiedTopology: true
 }).then((con) => {
     // console.log(con.connections);
-    console.log(`Connected to Database successfully 💿`);
+    spinner.succeed('Connected to Database successfully 💽');
 }).catch((err) => {
     console.error(err);
+    throw new Error('Failed to connect to Database. 💥 💥');
 });
 
 
 app.listen(port, () => {
-    console.log(`App running on PORT ${port} 🏃`);
+    console.log(`\n App running on PORT ${port} 🏃 🏃 🏃 🏃`);
+    console.log(`-------------------------------------------------------------------`)
+    console.log(`-------------------------------------------------------------------`)
+    console.log(`- THIS APPLICATION REPRESENTS A HARMONY OF MATHEMATICAL PRECISION -`)
+    console.log(`-------------------------------------------------------------------`)
+    console.log(`-------------------------------------------------------------------\n`)
 });
 
