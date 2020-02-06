@@ -1,0 +1,232 @@
+//emojis
+https://marketplace.visualstudio.com/items?itemName=bierner.emojisense
+https://www.youtube.com/watch?v=D6BFRY5yrcY
+
+mongoose schema conditional required
+https://stackoverflow.com/questions/52737661/mongoose-conditional-required-field-validation
+https://stackoverflow.com/questions/45348331/mongoose-require-a-field-based-on-some-enum-values-of-another-field
+
+https://stackoverflow.com/questions/43696464/disable-dates-within-given-ranges-in-jquery-datepickers-from-php-and-mysql
+
+mongodb text search node js
+https://www.youtube.com/watch?v=ZC2aRON3fWw
+https://arianacosta.com/database/mongodb/mongodb-full-text-search-tutorial/
+https://stackoverflow.com/questions/28775051/best-way-to-perform-a-full-text-search-in-mongodb-and-mongoose
+https://stackoverflow.com/questions/49381292/mongoose-fulltext-search-not-working
+
+mongoose mixed schema types
+https://stackoverflow.com/questions/24517358/how-to-add-dynamic-field-to-existing-collection-using-mongoose
+https://stackoverflow.com/questions/44420122/dynamic-mongoose-schema-based-on-property
+https://stackoverflow.com/questions/15870120/validating-mongoose-mixed-schema-type
+https://stackoverflow.com/questions/55288944/mongoose-mixed-schema-with-some-required-properties
+   
+mongoose populate virtuals
+https://stackoverflow.com/questions/50606710/mongoose-populate-virtuals-not-working-and-returning-null
+https://stackoverflow.com/questions/44857850/mongoose-virtual-field-one-to-many
+
+js iterate through nested obj.
+https://stackoverflow.com/questions/8085004/iterate-through-nested-javascript-objects
+https://stackoverflow.com/a/54272512
+
+mongoose validate
+https://stackoverflow.com/questions/54092094/mongoose-validate-array-of-subdocuments
+https://stackoverflow.com/questions/15870120/validating-mongoose-mixed-schema-type
+https://stackoverflow.com/questions/48482435/mongoose-schema-validation-issues-when-using-array-of-mixed
+https://stackoverflow.com/questions/35835376/how-to-validate-mongoose-schema-with-a-complex-object-in-array
+https://stackoverflow.com/questions/38451898/how-to-add-validation-on-mongoose-child-element-in-a-schema
+http://jasonjl.me/blog/2014/10/23/adding-validation-for-embedded-objects-in-mongoose/
+
+//when axios requests are pending
+https://stackoverflow.com/questions/54055935/my-call-async-await-returns-a-promise-pending-in-my-actions
+
+axios all 
+https://github.com/axios/axios/issues/708
+
+formdata to nested object
+https://stackoverflow.com/questions/52566331/formdata-append-nested-object
+form array
+https://stackoverflow.com/questions/9073690/post-an-array-from-an-html-form-without-javascript
+https://stackoverflow.com/questions/3234205/html-form-input-tag-name-element-array-with-javascript
+
+
+https://dev.to/jamesliudotcc/how-to-use-async-await-with-map-and-promise-all-1gb5
+
+https://dev.to/nedsoft/central-error-handling-in-express-3aej
+
+https://teamtreehouse.com/community/rangeerror-errhttpinvalidstatuscode-invalid-status-code-undefined-pretty-sure-the-issue-is-in-cardsjs
+
+// const adventureObj = [{
+//     date: {
+//         type: [Date],
+//         required: true
+//     },
+//     maxGroupSize: {
+//         type: Number
+//     },
+//     description: {
+//         type: String
+//     },
+//     images: {
+//         type: String
+//     },
+//     location: {
+//         type: {
+//             type: String,
+//             default: 'Point',//other options - line, polygon
+//             enum: ['Point']//we dont wnat line and polygon only Point
+//         },
+//         address: String,
+//         coordinates: Number
+//     },
+//     booked: {
+//         type: Boolean,
+//         default: false
+//     }
+// }];
+////////////////////////////////////////////////////////////////////////
+{
+	"name": "Desert Adventure",
+	"description": "An adventure through the Desert",
+	"category": "adventure",
+	"additionalDetails": [{
+		"date": "2020-07-10",
+		"maxGroupSize": 7,
+		"description": "On day 1 we will be leaving colombo for galle",
+		"image": "https://dummyimage.com/600x400/000/fff",
+		"location": {
+			"address": "106 Bonjean Rd Col -13",
+			"coordinates": [111111111111111111, 11111111111111222222222]
+		},
+		"booked": true
+	},
+{
+		"date": "2020-07-11",
+		"maxGroupSize": 7,
+		"description": "On day 2 we will be arriving in Galle in the rainforest",
+		"image": "https://dummyimage.com/600x400/000/fff",
+		"location": {
+			"address": "244/A Vystwyke Rd Col -15",
+			"coordinates": [22222222222222221111111111, 22222222222222222222]
+		},
+		"booked": false
+	}	
+	], 
+	"price": 300,
+	"images": ["https://dummyimage.com/600x400/71a8f0/fff", "https://dummyimage.com/600x400/f0c873/fff"]
+}
+
+/////////////////////////////////////////////////
+{
+    "name": "The Tree Hut",
+    "description": "A tree hut high up in the trees",
+    "category": "stay",
+    "additionalDetails": {
+        "maxGroupSize": 2
+    },
+    "price": 150,
+	"images": ["https://dummyimage.com/600x400/71a8f0/fff", "https://dummyimage.com/600x400/f0c873/fff"]
+
+}
+
+{
+	"ratingsAverage": 4.5,
+	"ratingsQuantity": 0,
+	"images": [],
+	"createdAt": "2020-02-04T12:52:42.624Z",
+	"_id": "5e2ab3fd29829a2ae85e7815",
+	"rating": 4.7,
+	"name": "The Cabin in the Forest",
+	"price": 1500,
+	"__v": 0,
+	"description": "AAAAAAAAAAAAAAAAAAAAA a very nice Adventure BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+}
+
+{
+	"ratingsAverage": 4.5,
+	"ratingsQuantity": 0,
+	"images": [
+		"bright-daylight-environment-forest-2400401580279948818.jpg",
+		"black-hanging-bridge-surrounded-by-green-forest-trees-7752011580279948824.jpg"
+	],
+	"createdAt": "2020-01-29T06:38:48.324Z",
+	"_id": "5e31288c4852531cd09f00f6",
+	"name": "the tree hut",
+	"description": "cccccccccccccccccccccccccccccccccccccccccccc",
+	"category": "stay",
+	"price": 150,
+	"additionalDetails": [
+		{
+			"maxGroupSize": 2
+		}
+	],
+	"__v": 0
+}
+
+
+
+// const sharpPromise = async (pathToFolderToStoreImages, images, imageNamesArr = [], dimensions = [640, 320]) => {
+
+//     await Promise.all(
+
+//         images.map(async file => {
+
+//           const filename = file.originalname.replace(/\..+$/, "");//remove extension
+
+//           const newFilename = `${filename}-${Date.now()}.jpeg`;//append jpeg extension and date
+    
+//           await sharp(file.buffer)
+//             .resize(dimensions[0], dimensions[1], {
+//               fit: 'cover'
+//             })
+//             .toFormat("jpeg")
+//             .jpeg({ quality: 90 })
+//             .toFile(`${pathToFolderToStoreImages}${newFilename}`);
+    
+//           imageNamesArr.push(newFilename);
+//         })
+//       ); 
+// };
+
+// exports.resizeImages = async (req, res, next) => {
+    
+//     if (!req.files) return next();
+    
+//     let dir;
+
+//     if (req.body.collection === 'listing'){
+        
+//         dir = path.join(__dirname,'../public/img/listings/');
+
+//         if (req.body.category === 'stay'){
+
+//             await sharpPromise(dir, req.files, req.body.images = []);
+           
+//         } else if (req.body.category === 'adventure'){
+            
+//             const mainPhotosArr = req.files.filter(el => {
+//                 return el.fieldname === 'photos'    
+//             });
+
+//             const individualPhotosArr = req.files.filter(el => {
+//                 return el.fieldname.startsWith('loc');    
+//             });
+
+//             req.body.images = [];
+
+//             req.body.individualPhotos = [];
+
+//             await sharpPromise(dir, mainPhotosArr, req.body.images = []);    
+
+//             await sharpPromise(dir, individualPhotosArr, req.body.individualPhotos = []);            
+
+//         }
+
+//     } else if (req.body.collection === 'user'){
+//         // dir = path.join(__dirname,'../public/img/users/');
+//         // await sharpPromise(dir, req.files, req.body.image, [200, 200]);
+//     }
+
+  
+//     next();
+
+// };
