@@ -33,7 +33,7 @@ app.use((req, res, next) => {
 app.use('/api/v1/listings', listingRouter);
 app.use('/api/v1/users', userRouter);
 
-//all  = all http methods, * = all undefined routes
+//.all  = all http methods, * = all undefined routes
 app.all('*', (req, res, next) => {
     next(new ErrorHandler(404, `Sorry the URL - ${req.originalUrl} - was not found on our server. 🌛`));
 });

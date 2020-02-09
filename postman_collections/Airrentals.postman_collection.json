@@ -1,0 +1,458 @@
+{
+	"info": {
+		"_postman_id": "2a01ded2-f9eb-4350-a98c-9ea6a61e7cca",
+		"name": "Airrentals",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Listings",
+			"item": [
+				{
+					"name": "Get all listings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:3000/api/v1/listings",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"listings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create new listing (Stay)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photos",
+									"type": "file",
+									"src": [
+										"/home/gerard/Documents/node_js_applications/air_rentals/dev-data/data/images/stay_cabin_forest/house-on-green-landscape-against-sky-314937.jpg",
+										"/home/gerard/Documents/node_js_applications/air_rentals/dev-data/data/images/stay_cabin_forest/brown-farm-gate-and-green-grass-field-1094544.jpg"
+									]
+								},
+								{
+									"key": "name",
+									"value": "The Cabin in the Woods",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Cabin in the Forest is a Beautiful, updated, open-concept home with exposed beams and stone fireplace on 23 private acres with 2 acre pond (great fishing for the kids!); treehouse, swings, fire pit, hobby farm with trails, gardens ... ",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "stay",
+									"type": "text"
+								},
+								{
+									"key": "maxGroupSize",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "298",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Perrysburg, Wood County, Ohio, USA",
+									"type": "text"
+								},
+								{
+									"key": "collection",
+									"value": "listing",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/v1/listings",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"listings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get listing by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:3000/api/v1/listings/5e2ab3fd29829a2ae85e7815",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"listings",
+								"5e2ab3fd29829a2ae85e7815"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update listing",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ratingsAverage\": 5,\n    \"ratingsQuantity\": 2,\n    \"images\": [\n        \"https://dummyimage.com/600x400/71a8f0/fff\",\n        \"https://dummyimage.com/600x400/f0c873/fff\"\n    ],\n    \"_id\": \"5e2ffec64f20952de01af2f0\",\n    \"name\": \"Desert Adventure\",\n    \"description\": \"An adventure through the Desert\",\n    \"category\": \"adventure\",\n    \"additionalDetails\": [\n        {\n            \"date\": \"2020-02-22\",\n            \"maxGroupSize\": 7,\n            \"description\": \"On day 1 we will be leaving colombo for Tripoli\",\n            \"images\": \"https://dummyimage.com/600x400/000/fff\",\n            \"location\": {\n                \"address\": \"Libiya, Tripoli\",\n                \"coordinates\": [333333333333222222222222, 3333333333333333333]\n            },\n            \"booked\": true\n        },\n        {\n            \"date\": \"2020-02-23\",\n            \"maxGroupSize\": 7,\n            \"description\": \"On day 2 we will be arriving in the Sahara Desert\",\n            \"images\": \"https://dummyimage.com/600x400/000/fff\",\n            \"location\": {\n                \"address\": \"Sahara Desert\",\n                \"coordinates\": [33333333333324456789, 33333333555555555555]\n            },\n            \"booked\": false\n        }\n    ],\n    \"price\": 1500,\n    \"__v\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/v1/listings/5e2ffec64f20952de01af2f0",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"listings",
+								"5e2ffec64f20952de01af2f0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete listing",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:3000/api/v1/listings/5e3991cb099687342b15d73b",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"listings",
+								"5e3991cb099687342b15d73b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create new listing (Adventure)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photos",
+									"type": "file",
+									"src": [
+										"/home/gerard/Documents/node_js_applications/air_rentals/dev-data/data/images/forest_adventure/nature-red-forest-leaves-33109.jpg",
+										"/home/gerard/Documents/node_js_applications/air_rentals/dev-data/data/images/forest_adventure/gray-and-white-house-beside-body-of-water-2091166.jpg",
+										"/home/gerard/Documents/node_js_applications/air_rentals/dev-data/data/images/forest_adventure/clouds-countryside-cropland-crops-442116.jpg"
+									]
+								},
+								{
+									"key": "name",
+									"value": "Forest Adventure",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "A journey through the forest, viewing old huts and arriving in the end on a snow covered City.",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "adventure",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "3500",
+									"type": "text"
+								},
+								{
+									"key": "loc[0][date]",
+									"value": "2020-10-16,10:00",
+									"type": "text"
+								},
+								{
+									"key": "loc[0][maxGroupSize]",
+									"value": "7",
+									"type": "text"
+								},
+								{
+									"key": "loc[0][description]",
+									"value": "On Day 1 we visit Denmarks forests",
+									"type": "text"
+								},
+								{
+									"key": "loc[0][image]",
+									"type": "file",
+									"src": "/home/gerard/Documents/node_js_applications/air_rentals/dev-data/data/images/forest_adventure/birdseye-photography-of-city-buildings-near-trees-and-957002.jpg"
+								},
+								{
+									"key": "loc[0][address]",
+									"value": "9520 Skørping, Denmark",
+									"type": "text"
+								},
+								{
+									"key": "loc[1][date]",
+									"value": "2020-10-20,10:00",
+									"type": "text"
+								},
+								{
+									"key": "loc[1][maxGroupSize]",
+									"value": "7",
+									"type": "text"
+								},
+								{
+									"key": "loc[1][description]",
+									"value": "On Day 4 we visit the snowy mountain city in copenhagen",
+									"type": "text"
+								},
+								{
+									"key": "loc[1][image]",
+									"type": "file",
+									"src": "/home/gerard/Documents/node_js_applications/air_rentals/dev-data/data/images/forest_adventure/abandoned-broken-cabin-calamity-428427.jpg"
+								},
+								{
+									"key": "loc[1][address]",
+									"value": "Sønder Felding, Denmark",
+									"type": "text"
+								},
+								{
+									"key": "collection",
+									"value": "listing",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/v1/listings",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"listings"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:3000/api/v1/users",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:3000/api/v1/users",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:3000/api/v1/users/1",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update user",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:3000/api/v1/users/1",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:3000/api/v1/users/1",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
